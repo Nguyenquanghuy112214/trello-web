@@ -15,27 +15,56 @@ import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import Profile from './Menus/Profile'
+import { Drawer, IconButton } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import { useState } from 'react'
 export default function Appbar() {
+  const [state, setState] = useState(false)
   return (
-    <Box px={2} sx={{ width: '100%', height: (theme) => theme.trello.appBarHeight, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <Box px={2} sx={{ width: '100%', height: (theme) => theme.trello.appBarHeight, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, overflowX: 'auto' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '2' }}>
         <AppsIcon sx={{ color: 'primary.main' }} />
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5' }}>
           <SvgIcon component={TrelloIcon} inheritViewBox fontSize="small" sx={{ color: 'primary.main' }} />
           <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>Trello</Typography>
         </Box>
-        {/* Wordsspace */}
-        <Wordspaces />
-        {/* Recent */}
-        <Recent />
-        {/* Starred */}
-        <Starred />
-        {/* Templates */}
-        <Templates />
-        <Button variant="outlined">Create</Button>
+
+        <IconButton onClick={() => setState(true)} edge="start" color="inherit" aria-label="menu" sx={{ ml: 2, display: { xs: 'flex', md: 'none' } }}>
+          <MenuIcon sx={{ color: 'primary.main' }} fontSize='small' />
+        </IconButton>
+        {/* mobile */}
+        <Drawer
+          sx={{ display: { xs: 'flex', md: 'none' } }}
+          anchor="top"
+          open={state}
+          onClose={() => setState(false)}
+        >
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, height: '140px', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Wordsspace */}
+            <Wordspaces />
+            {/* Recent */}
+            <Recent />
+            {/* Starred */}
+            <Starred />
+            {/* Templates */}
+            <Templates />
+            <Button variant="outlined">Create</Button>
+          </Box>
+        </Drawer>
+        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          {/* Wordsspace */}
+          <Wordspaces />
+          {/* Recent */}
+          <Recent />
+          {/* Starred */}
+          <Starred />
+          {/* Templates */}
+          <Templates />
+          <Button variant="outlined">Create</Button>
+        </Box>
       </Box>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <TextField id="outlined-search" label="Search..." type="search" size="small" />
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <TextField id="outlined-search" label="Search..." type="search" size="small" sx={{ minWidth: 120 }} />
         <ModeSelect />
         <Tooltip title="Notifycation">
           <Badge color="secondary" variant="dot" sx={{ cursor: 'pointer' }}>
