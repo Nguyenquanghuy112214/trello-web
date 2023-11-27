@@ -8,8 +8,8 @@ import Wordspaces from './Menus/Wordspaces'
 import Recent from './Menus/Recent'
 import Starred from './Menus/Starred'
 import Templates from './Menus/Templates'
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Button from '@mui/material/Button'
-import NotificationsIcon from '@mui/icons-material/Notifications'
 import TextField from '@mui/material/TextField'
 import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
@@ -21,7 +21,7 @@ export default function Appbar() {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '2' }}>
         <AppsIcon sx={{ color: 'primary.main' }} />
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5' }}>
-          <SvgIcon component={TrelloIcon} inheritViewBox sx={{ color: 'primary.main' }} />
+          <SvgIcon component={TrelloIcon} inheritViewBox fontSize="small" sx={{ color: 'primary.main' }} />
           <Typography variant='span' sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>Trello</Typography>
         </Box>
         {/* Wordsspace */}
@@ -39,11 +39,11 @@ export default function Appbar() {
         <ModeSelect />
         <Tooltip title="Notifycation">
           <Badge color="secondary" variant="dot" sx={{ cursor: 'pointer' }}>
-            <NotificationsIcon />
+            <NotificationsNoneIcon sx={{ color: 'primary.main' }} />
           </Badge>
         </Tooltip>
         <Tooltip title="Help">
-          <HelpOutlineIcon sx={{ cursor: 'pointer' }} />
+          <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'primary.main' }} />
         </Tooltip>
         {/* Profile */}
         <Profile />
