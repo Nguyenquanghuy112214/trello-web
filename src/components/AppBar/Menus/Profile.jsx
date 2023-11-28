@@ -7,8 +7,6 @@ import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemIcon from '@mui/material/ListItemIcon'
 
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import Check from '@mui/icons-material/Check'
 import { Avatar, IconButton, Tooltip } from '@mui/material'
 import { Logout, PersonAdd, Settings } from '@mui/icons-material'
 export default function Profile() {
@@ -32,7 +30,7 @@ export default function Profile() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
         >
-          <Avatar sx={{ width: 30, height: 32 }} alt="QuangHuyDev" src='https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/353817796_3430709953868970_374175792483119879_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=7sRCxELTJwwAX-pAd6K&_nc_ht=scontent.fhan2-3.fna&oh=00_AfDgSJSFtcQaKHGtc-jaC6JN78BScOhIIitgGWD-bfAkIA&oe=656A6D84'></Avatar>
+          <Avatar sx={{ width: 36, height: 36 }} alt="QuangHuyDev" src='https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/353817796_3430709953868970_374175792483119879_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=7sRCxELTJwwAX-pAd6K&_nc_ht=scontent.fhan2-3.fna&oh=00_AfDgSJSFtcQaKHGtc-jaC6JN78BScOhIIitgGWD-bfAkIA&oe=656A6D84'></Avatar>
         </IconButton>
       </Tooltip>
       <Menu
