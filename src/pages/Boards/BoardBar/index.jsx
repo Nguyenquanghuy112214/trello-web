@@ -31,7 +31,10 @@ export default function BoardBar() {
       px: 2,
       overflowX: 'auto',
       bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
-      borderBottom: '1px solid white'
+      borderBottom: '1px solid white',
+      '&::-webkit-scrollbar-track': {
+        m: 2
+      }
 
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -56,12 +59,15 @@ export default function BoardBar() {
         <AvatarGroup
           max={6} total={10}
           sx={{
-            border: 'none',
             gap: '5px',
             '& .MuiAvatar-root': {
               width: 30,
               height: 30,
-              fontSize: '16px'
+              border: 'none',
+              fontSize: '16px',
+              color: 'white',
+              cursor: 'pointer',
+              bgcolor: '#a4b0be'
             }
           }}
         >
