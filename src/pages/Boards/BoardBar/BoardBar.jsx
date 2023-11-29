@@ -7,6 +7,7 @@ import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import { Avatar, AvatarGroup, Button, Tooltip } from '@mui/material'
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1'
+import { capitalizeFirstLetter } from '~/utils/formatters'
 const MENU_STYLES = {
   color: 'white',
   bgcolor: 'transparent',
@@ -20,7 +21,8 @@ const MENU_STYLES = {
     bgcolor: 'primary.50'
   }
 }
-export default function BoardBar() {
+export default function BoardBar({ board }) {
+
   return (
     <Box sx={{
       width: '100%',
@@ -38,8 +40,8 @@ export default function BoardBar() {
 
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Chip icon={<DashboardIcon />} label="QuangHuyDev MERN Stack Board" clickable sx={MENU_STYLES} />
-        <Chip icon={<VpnLockIcon />} label="Public/Private Workspace" clickable sx={MENU_STYLES} />
+        <Chip icon={<DashboardIcon />} label={board?.title} clickable sx={MENU_STYLES} />
+        <Chip icon={<VpnLockIcon />} label={capitalizeFirstLetter(board?.type)} clickable sx={MENU_STYLES} />
         <Chip icon={<AddToDriveIcon />} label="Add To Google Drive" clickable sx={MENU_STYLES} />
         <Chip icon={<BoltIcon />} label="Automation" clickable sx={MENU_STYLES} />
         <Chip icon={<FilterListIcon />} label="Filter" clickable sx={MENU_STYLES} />

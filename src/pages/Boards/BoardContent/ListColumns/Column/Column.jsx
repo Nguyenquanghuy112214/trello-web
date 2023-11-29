@@ -7,8 +7,9 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import AddCardIcon from '@mui/icons-material/AddCard'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/ListCards'
+import { mapOrder } from '~/utils/sorts'
 
-function Column() {
+function Column({ column }) {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -17,6 +18,7 @@ function Column() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+  const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   return (
     <>
       <Box sx={{
@@ -42,7 +44,7 @@ function Column() {
             cursor: 'pointer',
             fontSize: '1rem'
           }}>
-            Column Title
+            {column?.title}
           </Typography>
           <Box>
             <Tooltip title="More options">
@@ -106,7 +108,7 @@ function Column() {
           </Box>
         </Box>
         {/*  */}
-        <ListCards />
+        <ListCards cards={orderedCards} />
         <Box sx={{
           height: (theme) => (theme.trello.columnFooterHeight),
           p: 2,

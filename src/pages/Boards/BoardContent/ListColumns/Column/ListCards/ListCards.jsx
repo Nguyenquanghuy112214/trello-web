@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
 import CardItem from "./Card/Card"
 
-function ListCards() {
+function ListCards({ cards }) {
   return (
     <Box sx={{
       p: '0 5px',
@@ -13,9 +13,7 @@ function ListCards() {
       overflowY: 'auto',
       maxHeight: (theme) => (`calc(${theme.trello.boardContentHieght} - ${theme.spacing(5)} - ${theme.trello.columnHeaderHeight} - ${theme.trello.columnFooterHeight})`)
     }}>
-
-      <CardItem />
-      <CardItem temporaryHideMedia={true} />
+      {cards?.map(card => <CardItem key={card?._id} card={card} />)}
 
     </Box>
   )
